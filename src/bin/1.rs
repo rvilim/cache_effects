@@ -7,7 +7,7 @@ fn main() {
     let size = args[1].parse::<usize>().unwrap();
     let skip = args[2].parse::<usize>().unwrap();
     let n_trials = args[3].parse::<u128>().unwrap();
-    let burn_in = 1000;
+    let burn_in = 10;
 
     let mut total_nanos = 0;
 
@@ -16,7 +16,7 @@ fn main() {
         let now = Instant::now();
 
         for i in (0..vec.len()).step_by(skip) {
-            vec[i] *= 2;
+            vec[i] *= 3;
         }
 
         if i > burn_in {
