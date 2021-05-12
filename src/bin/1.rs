@@ -7,7 +7,7 @@ fn main() {
     let size = args[1].parse::<usize>().unwrap();
     let skip = args[2].parse::<usize>().unwrap();
     let n_trials = args[3].parse::<u128>().unwrap();
-    let burn_in = 10;
+    let burn_in = 100;
 
     let mut total_nanos = 0;
 
@@ -24,5 +24,11 @@ fn main() {
         }
     }
 
-    println!("{}", total_nanos / n_trials);
+    println!(
+        "{},{},{},{}",
+        skip,
+        total_nanos / n_trials,
+        size / skip,
+        total_nanos / ((size / skip) as u128)
+    );
 }
